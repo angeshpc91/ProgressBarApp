@@ -10,5 +10,5 @@
         <span class="bar-value-left">{{barVal < 0 ?  0 : barVal}}</span>
     </div>
     <button mat-fab class="button" *ngFor="let buttonVal of progressBarObj.buttons" value="{{buttonVal}}"
-        (click)="add(buttonVal)">{{buttonVal}}</button>
+        (click)="add(buttonVal, progressBarObj, selectedVal)">{{buttonVal}}</button>
 </section>

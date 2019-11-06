@@ -13,17 +13,12 @@ export class ProgressHttpService {
 
   constructor(private http: HttpClient) { }
 
-  /*========================================
-    CRUD Methods for consuming RESTful API
-  =========================================*/
-
   // Http Options
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }  
-
 
   getProgressBarValues(): Observable<ProgressBarPage> {
     return this.http.get<ProgressBarPage>(this.apiURL + '/bars')
