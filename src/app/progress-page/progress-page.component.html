@@ -1,0 +1,14 @@
+<section class="progress-page" *ngIf="progressBarObj">
+    <mat-select [(value)]="selectedVal">
+        <mat-option *ngFor="let barVal of progressBarObj.bars; let i = index" value="Progress {{i}}">Progress {{i}}
+        </mat-option>
+    </mat-select>
+    <div *ngFor="let barVal of progressBarObj.bars; let i = index" class="progress-bar-div">
+        <div>#{{i}}</div>
+        <progress class="progress-bar" value="{{barVal}}" max="{{progressBarObj.limit}}"
+            [ngClass]="barVal > progressBarObj.limit? 'progress-red' : ''"></progress>
+        <span class="bar-value-left">{{barVal < 0 ?  0 : barVal}}</span>
+    </div>
+    <button mat-fab class="button" *ngFor="let buttonVal of progressBarObj.buttons" value="{{buttonVal}}"
+        (click)="add(buttonVal)">{{buttonVal}}</button>
+</section>
